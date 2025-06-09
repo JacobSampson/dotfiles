@@ -3,10 +3,8 @@ FROM mcr.microsoft.com/devcontainers/base:debian
 RUN export NVM_DIR=/home/node/.nvm && \
     mkdir -p $NVM_DIR && \
     curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash && \
-    $NVM_DIR/nvm.sh && \
-    nvm install 20 && \
-    nvm use 20 && \
-    nvm alias default 20
+    chmod +x $NVM_DIR/nvm.sh && $NVM_DIR/nvm.sh && \
+    nvm install 20 && nvm use 20 && nvm alias default 20
 
 ENV PATH="/home/node/.nvm/versions/node/v20.*/bin/:$PATH"
 
