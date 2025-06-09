@@ -1,12 +1,13 @@
 FROM mcr.microsoft.com/devcontainers/base:debian
 
-RUN export NVM_DIR=/home/node/.nvm && \
-    mkdir -p $NVM_DIR && \
-    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash && \
-    chmod +x $NVM_DIR/nvm.sh && $NVM_DIR/nvm.sh && \
-    nvm install 20 && nvm use 20 && nvm alias default 20
-
-ENV PATH="/home/node/.nvm/versions/node/v20.*/bin/:$PATH"
+RUN mkdir /usr/local/nvm
+ENV NVM_DIR /usr/local/nvm
+ENV NODE_VERSION 22.16.0
+RUN curl https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash \
+    && . $NVM_DIR/nvm.sh \
+    && nvm install $NODE_VERSION \
+    && nvm alias default $NODE_VERSION \
+    && nvm use default
 
 # Install pnpm and turbo globally
 RUN npm install -g pnpm@9.14.4 && pnpm add -g turbo
