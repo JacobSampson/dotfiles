@@ -10,9 +10,6 @@
         "ghcr.io/jungaretti/features/make:1": {},
         "ghcr.io/devcontainers/features/docker-outside-of-docker:1": {}
     },
-    "mounts": [
-        "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind"
-    ],
     "postCreateCommand": "pnpm install && pnpm prepare",
     "customizations": {
         "vscode": {
