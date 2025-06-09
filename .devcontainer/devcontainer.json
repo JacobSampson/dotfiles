@@ -7,8 +7,7 @@
         "ghcr.io/devcontainers/features/aws-cli:1": {},
         "ghcr.io/mikaello/devcontainer-features/modern-shell-utils:1": {},
         "ghcr.io/eitsupi/devcontainer-features/jq-likes:1": {},
-        "ghcr.io/jungaretti/features/make:1": {},
-        "ghcr.io/devcontainers/features/docker-outside-of-docker:1": {}
+        "ghcr.io/jungaretti/features/make:1": {}
     },
     "postCreateCommand": "pnpm install && pnpm prepare",
     "customizations": {
@@ -40,7 +39,6 @@
             },
             "extensions": [
                 "amazonwebservices.aws-toolkit-vscode",
-		        "ms-azuretools.vscode-docker",
                 "dbaeumer.vscode-eslint",
                 "esbenp.prettier-vscode",
                 "austenc.tailwind-docs",
