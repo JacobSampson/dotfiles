@@ -1,11 +1,11 @@
 FROM mcr.microsoft.com/devcontainers/base:debian
 
-RUN mkdir /usr/local/nvm
 ENV NVM_DIR /usr/local/nvm
 ENV NODE_VERSION 22.16.0
 
-RUN curl https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash \
-    && source $NVM_DIR/nvm.sh \
+RUN mkdir -p /usr/local/nvm \
+    && curl https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash \
+    && . $NVM_DIR/nvm.sh \
     && nvm install $NODE_VERSION \
     && nvm alias default $NODE_VERSION \
     && nvm use default
