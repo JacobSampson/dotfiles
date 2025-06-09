@@ -2,6 +2,7 @@ FROM mcr.microsoft.com/devcontainers/base:debian
 
 ENV NVM_DIR /usr/local/nvm
 ENV NODE_VERSION 22.16.0
+ENV PNPM_HOME $HOME/.pnpm_global
 
 RUN mkdir -p /usr/local/nvm \
     && curl https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash \
@@ -11,10 +12,12 @@ RUN mkdir -p /usr/local/nvm \
     && nvm use default
 
 ENV NODE_PATH $NVM_DIR/v$NODE_VERSION/lib/node_modules
-ENV PATH $NVM_DIR/versions/node/v$NODE_VERSION/bin:$PATH
+ENV PATH $NVM_DIR/versions/node/v$NODE_VERSION/bin:$PNPM_HOME:$PATH
 
 # Install pnpm and turbo globally
-RUN npm install -g pnpm@9.14.4 && pnpm add -g turbo
+RUN mkdir -p $PNPM_HOME \
+    && npm install -g pnpm@9.14.4 \
+    && pnpm add -g turbo
 
 # Install Tailscale CLI
 RUN apt-get update && \
