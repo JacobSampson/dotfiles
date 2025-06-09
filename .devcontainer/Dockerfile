@@ -10,6 +10,9 @@ RUN mkdir -p /usr/local/nvm \
     && nvm alias default $NODE_VERSION \
     && nvm use default
 
+ENV NODE_PATH $NVM_DIR/v$NODE_VERSION/lib/node_modules
+ENV PATH $NVM_DIR/versions/node/v$NODE_VERSION/bin:$PATH
+
 # Install pnpm and turbo globally
 RUN npm install -g pnpm@9.14.4 && pnpm add -g turbo
 
