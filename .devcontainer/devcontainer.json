@@ -5,34 +5,55 @@
     },
     "features": {
         "ghcr.io/devcontainers/features/aws-cli:1": {},
+        "ghcr.io/mikaello/devcontainer-features/modern-shell-utils:1": {},
         "ghcr.io/eitsupi/devcontainer-features/jq-likes:1": {},
-        "ghcr.io/jungaretti/features/make:1": {}
+        "ghcr.io/jungaretti/features/make:1": {},
+        "ghcr.io/devcontainers-contrib/features/pre-commit:2": {},
+        "ghcr.io/devcontainers/features/docker-outside-of-docker:1": {}
     },
+    "mounts": [
+        "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind"
+    ],
     "postCreateCommand": "pnpm install && pnpm prepare",
     "customizations": {
         "vscode": {
             "settings": {
+                "editor.tabSize": 2,
+                "editor.formatOnSave": true,
+                "terminal.integrated.defaultProfile.linux": "zsh",
+                "terminal.integrated.profiles.linux": {
+                    "bash": {
+                        "path": "bash",
+                        "icon": "terminal-bash"
+                    },
+                    "zsh": {
+                        "path": "zsh"
+                    }
+                },
                 "eslint.validate": [
                     "typescript",
                     "typescriptreact"
                 ],
-                "editor.formatOnSave": true,
                 "prettier.enable": true,
                 "files.insertFinalNewline": true,
                 "[makefile]": {
                     "editor.insertSpaces": false,
                     "editor.detectIndentation": false
-                }
+                },
+                "workbench.colorTheme": "One Dark Pro"
             },
             "extensions": [
                 "amazonwebservices.aws-toolkit-vscode",
+		        "ms-azuretools.vscode-docker",
                 "dbaeumer.vscode-eslint",
                 "esbenp.prettier-vscode",
                 "austenc.tailwind-docs",
                 "bradlc.vscode-tailwindcss",
-                "yoavbls.pretty-ts-errors"
+                "yoavbls.pretty-ts-errors",
+                "zhuangtongfa.Material-theme"
             ]
         }
     },
+    
     "remoteUser": "node"
 }
