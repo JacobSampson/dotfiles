@@ -1,12 +1,10 @@
 {
-    "name": "kossabos",
-    "image": "mcr.microsoft.com/devcontainers/typescript-node:20-bookworm",
+    "name": "jacobsampson",
+    "build": {
+        "dockerfile": "Dockerfile"
+    },
     "features": {
         "ghcr.io/devcontainers/features/aws-cli:1": {},
-        "ghcr.io/devcontainers/features/pnpm:1": {
-            "version": "9.14.4"
-        },
-        "ghcr.io/devcontainers/features/tailscale:1": {},
         "ghcr.io/eitsupi/devcontainer-features/jq-likes:1": {},
         "ghcr.io/jungaretti/features/make:1": {}
     },
