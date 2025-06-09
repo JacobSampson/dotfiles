@@ -24,6 +24,5 @@ RUN apt-get update && \
     apt-get install -y tailscale && \
     apt-get clean
 
-# Set working directory and user
-USER node
+# Set working directory
 WORKDIR /workspaces/jacobsampson
