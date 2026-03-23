@@ -71,3 +71,5 @@ KUBE_PS1_SUFFIX=')%b '          # Close bold and bracket
 PROMPT='$(kube_ps1)%{%F{cyan}%}%B%c%b%{%f%} $(git_prompt_info) '
 
 [[ -f "$HOME/.apprentice/shell-init.sh" ]] && source "$HOME/.apprentice/shell-init.sh"
+
+eval "$(direnv hook zsh)" 

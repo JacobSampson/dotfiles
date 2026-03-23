@@ -55,6 +55,7 @@ brew install git-lfs
 brew install aws-sam-cli
 brew install awscli
 brew install nvm
+brew install direnv
 
 # Remove outdated versions from the cellar.
 brew cleanup
