@@ -56,6 +56,17 @@ brew install aws-sam-cli
 brew install awscli
 brew install nvm
 brew install direnv
+brew install cloudflared
+
+brew install --cask \
+	microsoft-edge \
+	rectangle \
+	visual-studio-code \
+	iterm2 \
+    docker \
+	kap \
+	audacity \
+    insomnia
 
 # Remove outdated versions from the cellar.
 brew cleanup
